@@ -1,0 +1,137 @@
+body{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    background: #d4e9f7;
+}
+
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+
+}
+
+.emoji{
+    position: relative; /*Posiciona o elemento apenas horizontalmente ou verticalmente*/
+    display: inline-block;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px 2px #eead2b;
+    background: linear-gradient(#FFED65,#EEAD2F);
+
+}
+.emoji_rosto, .emoji_testa,
+.emoji_olho, .emoji_boca{
+    position: absolute;
+}
+
+
+.emoji_rosto{
+    height: 120px;
+    width: 120px;
+    animation: rosto 3s linear infinite;
+}
+
+/*Animação do rosto do emoji virando de um lado pro outro*/
+@keyframes rosto{
+    15%, 25%{
+        transform: rotate(20deg) translateX(-20px);
+    }
+    45%, 65%{
+        transform: rotate(-20deg) translateX(20px);
+    }
+    75%, 100%{
+        transform: rotate(0) translateX(0);
+    }
+}
+
+.emoji_testa{
+    left: calc(50% - 3px);
+    height: 6px;
+    width: 6px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: -18px 0 0 0 #aa7408,
+                -33px 0 0 0 #aa7408,
+                 18px 0 0 0 #aa7408,
+                 33px 0 0 0 #aa7408;
+    animation: olho-testa 3s linear infinite;
+}
+
+/*Animação do olho do emoji levantando junto com a testa*/
+@keyframes olho-testa{
+    15%, 65%{
+        top: 25px;
+    }
+    75%, 100%, 0%{
+        top: 15px;
+    }
+}
+
+.emoji_testa:before,
+.emoji_testa:after{
+    position: absolute;
+    content: ''; /*Gera um conteudo vazio que pode ser estilizado*/
+    left: calc(50% - 12px);
+    top: -3px;
+    width: 24px;
+    height: 24px;
+    border: 6px solid #aa7408;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}  
+
+.emoji_testa:before{
+    margin-left: -25px;
+}
+
+.emoji_testa:after{
+    margin-left: 25px;
+}
+
+.emoji_olho{
+    top: 35px;
+    left: calc(50% - 8px);
+    height: 24px;
+    width: 16px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 25px 0 0 0 #1b2031,
+                -25px 0 0 0 #1b2031;
+}
+
+
+.emoji_boca{
+    top: 50%;
+    left: calc(50% - 15px);
+    width: 30px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(#54290F, #622B0B,#6E3011);
+    animation: boca 3s linear infinite;
+}
+
+
+/*Animação da boca do emoji abrindo */
+
+@keyframes boca{
+    10%,30%{
+        width: 20px;
+        height: 20px;
+        left: calc(50% - 10px);
+    }
+    50%, 70%{
+        width: 30px;
+        height: 40px;
+        left: calc(50% - 15px);
+    }
+     75%, 100%{
+        height: 45px;
+    }
+}
